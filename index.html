@@ -43,12 +43,8 @@
   }
   nav.scrolled { background: rgba(8,8,8,0.97); border-bottom: 1px solid #222; }
 
-  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .nav-logo svg { width: 36px; height: 36px; }
-  .nav-logo-text {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px; letter-spacing: 4px; color: var(--white);
-  }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-logo img { height: 48px; width: auto; display: block; }
 
   .nav-links { display: flex; gap: 40px; list-style: none; }
   .nav-links a {
@@ -220,6 +216,35 @@
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 11px; font-weight: 600; letter-spacing: 3px;
     text-transform: uppercase; color: var(--mid); margin-top: 4px;
+  }
+
+  /* ── ACTION STRIP ── */
+  .action-strip {
+    position: relative; width: 100%; height: 320px; overflow: hidden;
+  }
+  .action-strip img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+    display: block; filter: brightness(0.55);
+  }
+  .action-strip-overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 60px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  }
+  .action-strip-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 6px;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 14px; margin-bottom: 14px;
+  }
+  .action-strip-label::before {
+    content: ''; display: block; width: 30px; height: 1px; background: var(--accent);
+  }
+  .action-strip-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 100px); line-height: 0.9;
+    color: var(--white); letter-spacing: 2px;
   }
 
   /* ── SECTIONS SHARED ── */
@@ -626,12 +651,7 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo">
-    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="50,5 95,90 5,90" fill="white"/>
-      <polygon points="50,30 75,75 25,75" fill="#080808"/>
-      <line x1="10" y1="60" x2="90" y2="52" stroke="#080808" stroke-width="5"/>
-    </svg>
-    <span class="nav-logo-text">GWAZU</span>
+    <img src="Gwazu_Logo_1.png" alt="GWAZU" />
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -669,10 +689,10 @@
     <div class="hero-right">
       <div class="hero-photo-stack">
         <div class="photo-card photo-card-1">
-          <img src="20231230_171422.jpg" alt="GWAZU Apparel"/>
+          <img src="IMG-20241118-WA0023.jpg" alt="GWAZU Uganda Kit"/>
         </div>
         <div class="photo-card photo-card-2">
-          <img src="-adb0hl.jpg" alt="GWAZU on the pitch"/>
+          <img src="HL7A4121.jpg" alt="GWAZU Rugby Player"/>
         </div>
       </div>
     </div>
@@ -696,6 +716,15 @@
     </div>
   </div>
 </section>
+
+<!-- ACTION STRIP -->
+<div class="action-strip">
+  <img src="20250718_211240.jpg" alt="GWAZU team in action" />
+  <div class="action-strip-overlay">
+    <div class="action-strip-label">Worn on the pitch</div>
+    <div class="action-strip-text">BUILT FOR<br>CHAMPIONS</div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
@@ -722,13 +751,13 @@
       <!-- Team photo strip -->
       <div class="team-photo-strip" style="margin-top: 40px;">
         <div class="tps-item">
-          <img src="20231230_084516.jpg" alt="GWAZU Team"/>
+          <img src="IMG-20241118-WA0025.jpg" alt="GWAZU Uganda Kit – Close-up"/>
         </div>
         <div class="tps-item">
-          <img src="20231230_084851.jpg" alt="GWAZU Team"/>
+          <img src="HL7A5153.jpg" alt="GWAZU Team Event"/>
         </div>
         <div class="tps-item">
-          <img src="20231230_171404.jpg" alt="GWAZU Team"/>
+          <img src="IMG-20241111-WA0132.jpg" alt="GWAZU Community Event"/>
         </div>
       </div>
     </div>
@@ -777,7 +806,7 @@
       <!-- Logo close-up photos -->
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:40px;">
         <div style="overflow:hidden; aspect-ratio:1; border: 1px solid rgba(255,255,255,0.08);">
-          <img src="20231120_182642__1_.jpg" alt="GWAZU Logo detail" style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.2);transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+          <img src="Gwazu_Logo_1.png" alt="GWAZU Logo" style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.2);transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
         </div>
         <div style="overflow:hidden; aspect-ratio:1; border: 1px solid rgba(255,255,255,0.08);">
           <img src="20231125_165459.jpg" alt="GWAZU on blue" style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.2);transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
@@ -802,40 +831,40 @@
 
     <div class="work-grid reveal">
       <div class="work-cell wc-1">
-        <img src="-adb0hl.jpg" alt="GWAZU Football kit in action"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Football · Flames Kit</span></div>
+        <img src="IMG-20241118-WA0021.jpg" alt="GWAZU Uganda Kit Promo"/>
+        <div class="work-cell-overlay"><span class="work-cell-label">Uganda · National Kit</span></div>
       </div>
       <div class="work-cell wc-2">
-        <img src="20241111_171528.jpg" alt="GWAZU team celebration"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Match Day</span></div>
+        <img src="HL7A4121.jpg" alt="GWAZU Rugby Player Action"/>
+        <div class="work-cell-overlay"><span class="work-cell-label">Rugby Legends Uganda</span></div>
       </div>
       <div class="work-cell wc-3">
-        <img src="20241202_105723.png" alt="Uganda National Kit concept"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Uganda Kit Concept</span></div>
+        <img src="GRANDEZA_SK7_ad.png" alt="Grandeza CF – Champion Mode"/>
+        <div class="work-cell-overlay"><span class="work-cell-label">Grandeza CF · Champion Mode</span></div>
       </div>
       <div class="work-cell wc-4">
-        <img src="Championssk3-1.png" alt="Champions FC kit"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Champions FC</span></div>
+        <img src="koryom2.png" alt="Koryom FC – Grasshoppers"/>
+        <div class="work-cell-overlay"><span class="work-cell-label">Koryom FC · Grasshoppers</span></div>
       </div>
       <div class="work-cell wc-5">
-        <img src="curfew.png" alt="Curfew Crew kit"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Curfew Crew</span></div>
+        <img src="Polo_neck_full_kit4.png" alt="Charlie's Shooters 17 Dark Kit"/>
+        <div class="work-cell-overlay"><span class="work-cell-label">Charlie's Shooters 17</span></div>
       </div>
       <div class="work-cell wc-6">
         <img src="CREATE_YOUR_IDENTITY_2.png" alt="Create Your Identity campaign"/>
         <div class="work-cell-overlay"><span class="work-cell-label">Create Your Identity</span></div>
       </div>
       <div class="work-cell wc-7">
-        <img src="Bambina.png" alt="Swahili Esports — Bambina"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Esports · Bambina</span></div>
+        <img src="Red_special_UG-2.png" alt="Uganda Red Special Kit"/>
+        <div class="work-cell-overlay"><span class="work-cell-label">Uganda · Red Special Kit</span></div>
       </div>
       <div class="work-cell wc-8">
-        <img src="Coco_Felon.png" alt="Swahili Esports — Coco Felon"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Esports · Coco Felon</span></div>
+        <img src="KYUad.png" alt="Kyambogo University Rugby"/>
+        <div class="work-cell-overlay"><span class="work-cell-label">Kyambogo University Rugby</span></div>
       </div>
       <div class="work-cell wc-9">
-        <img src="final_ad.png" alt="Smack Eagles Rugby replica"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Smack Eagles Rugby</span></div>
+        <img src="VURSK1homead.png" alt="VU Sharks – Home Kit"/>
+        <div class="work-cell-overlay"><span class="work-cell-label">VU Sharks · Home Kit</span></div>
       </div>
     </div>
   </div>
@@ -870,7 +899,7 @@
     <!-- Visual category selector -->
     <div class="cat-nav reveal">
       <div class="cat-card active" data-cat="football" onclick="switchCat('football')">
-        <img src="20241202_105723.png" alt="Football kits"/>
+        <img src="GRANDEZA_SK7.png" alt="Football kits"/>
         <div class="cat-card-inner">
           <div class="cat-card-emoji">⚽</div>
           <div class="cat-card-name">Football</div>
@@ -879,7 +908,7 @@
         <div class="cat-card-active-bar"></div>
       </div>
       <div class="cat-card" data-cat="rugby" onclick="switchCat('rugby')">
-        <img src="final_ad.png" alt="Rugby kits"/>
+        <img src="KYUad-1.png" alt="Rugby kits"/>
         <div class="cat-card-inner">
           <div class="cat-card-emoji">🏉</div>
           <div class="cat-card-name">Rugby</div>
@@ -888,7 +917,7 @@
         <div class="cat-card-active-bar"></div>
       </div>
       <div class="cat-card" data-cat="vests" onclick="switchCat('vests')">
-        <img src="CREATE_YOUR_IDENTITY_2.png" alt="Vests and training"/>
+        <img src="SMACKVEST_SK1F.png" alt="Vests and training"/>
         <div class="cat-card-inner">
           <div class="cat-card-emoji">🏃</div>
           <div class="cat-card-name">Vests</div>
@@ -897,7 +926,7 @@
         <div class="cat-card-active-bar"></div>
       </div>
       <div class="cat-card" data-cat="apparel" onclick="switchCat('apparel')">
-        <img src="20231230_171404.jpg" alt="GWAZU Apparel"/>
+        <img src="IMG-20241118-WA0023.jpg" alt="GWAZU Apparel"/>
         <div class="cat-card-inner">
           <div class="cat-card-emoji">👕</div>
           <div class="cat-card-name">Apparel</div>
@@ -911,15 +940,15 @@
     <div class="tab-panel active" id="tab-football">
       <div class="product-showcase">
         <div class="showcase-card">
-          <img src="curfew.png" alt="Curfew Crew football kit"/>
+          <img src="ug3__1_.png" alt="Uganda Tribal Red Kit"/>
           <div class="showcase-card-label">Custom Football Kit</div>
         </div>
         <div class="showcase-card">
-          <img src="20241202_105723.png" alt="Uganda national concept kit"/>
+          <img src="Polo_neck_full_kit4.png" alt="Charlie's Shooters 17 Kit"/>
           <div class="showcase-card-label">National Level Design</div>
         </div>
         <div class="showcase-card">
-          <img src="-adb0hl.jpg" alt="Football kit on pitch"/>
+          <img src="ug4.png" alt="Uganda Tribal White Kit"/>
           <div class="showcase-card-label">On-Pitch Performance</div>
         </div>
       </div>
@@ -1005,15 +1034,15 @@
     <div class="tab-panel" id="tab-rugby">
       <div class="product-showcase">
         <div class="showcase-card">
-          <img src="final_ad.png" alt="Smack Eagles Rugby kit"/>
+          <img src="VURSK1awayad.png" alt="VU Sharks Away Kit"/>
           <div class="showcase-card-label">Smack Eagles Kit</div>
         </div>
         <div class="showcase-card">
-          <img src="20241111_171528.jpg" alt="Rugby players in GWAZU kits"/>
+          <img src="GbtPAKvXUA0jPFj.jpeg" alt="Rugby Legends Uganda"/>
           <div class="showcase-card-label">Match-Ready Quality</div>
         </div>
         <div class="showcase-card">
-          <img src="20231120_182642__1_.jpg" alt="GWAZU Rugby logo detail"/>
+          <img src="SMACK_SK3B.png" alt="Smack Rugby Jersey"/>
           <div class="showcase-card-label">Precision Branding</div>
         </div>
       </div>
@@ -1099,15 +1128,15 @@
     <div class="tab-panel" id="tab-vests">
       <div class="product-showcase">
         <div class="showcase-card">
-          <img src="CREATE_YOUR_IDENTITY_2.png" alt="GWAZU training vests"/>
+          <img src="VUSSK4.png" alt="VU Sharks Vest"/>
           <div class="showcase-card-label">Training Vests</div>
         </div>
         <div class="showcase-card">
-          <img src="20250718_211240.jpg" alt="Swahili Esports jersey"/>
+          <img src="SMACKVEST_SK1F.png" alt="Smack Rugby Vest Front"/>
           <div class="showcase-card-label">Esports Jerseys</div>
         </div>
         <div class="showcase-card">
-          <img src="Bambina.png" alt="Bambina esports jersey"/>
+          <img src="Volleyball_V_Neck_full_kit_1__1_.png" alt="Volleyball Kit"/>
           <div class="showcase-card-label">Custom Vests</div>
         </div>
       </div>
@@ -1193,15 +1222,15 @@
     <div class="tab-panel" id="tab-apparel">
       <div class="product-showcase">
         <div class="showcase-card">
-          <img src="20231230_084516.jpg" alt="GWAZU black tee"/>
+          <img src="IMG-20241118-WA0023.jpg" alt="GWAZU Uganda Kit"/>
           <div class="showcase-card-label">Cotton T-Shirts</div>
         </div>
         <div class="showcase-card">
-          <img src="20231230_171404.jpg" alt="GWAZU white V-neck"/>
+          <img src="IMG-20241118-WA0025.jpg" alt="GWAZU Uganda Kit – Detail"/>
           <div class="showcase-card-label">V-Neck Apparel</div>
         </div>
         <div class="showcase-card">
-          <img src="20231230_171422.jpg" alt="GWAZU casual wear"/>
+          <img src="HL7A5153.jpg" alt="GWAZU Brand Event"/>
           <div class="showcase-card-label">Lifestyle Apparel</div>
         </div>
       </div>
