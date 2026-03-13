@@ -24,6 +24,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   html { scroll-behavior: smooth; }
 
   body {
@@ -43,23 +44,43 @@
   }
   nav.scrolled { background: rgba(8,8,8,0.97); border-bottom: 1px solid #222; }
 
-  .nav-logo { display: flex; align-items: center; text-decoration: none; }
-  .nav-logo img { height: 48px; width: auto; display: block; }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo svg { width: 36px; height: 36px; }
+  .nav-logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: var(--white);
+  }
 
-  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links {
+    display: flex; gap: 40px; list-style: none;
+  }
   .nav-links a {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px; font-weight: 600; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--light); text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--light);
+    text-decoration: none;
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--white); }
 
   .nav-cta {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px; font-weight: 700; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--black); background: var(--white);
-    padding: 10px 24px; text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--white);
+    padding: 10px 24px;
+    text-decoration: none;
     transition: background 0.2s, color 0.2s;
   }
   .nav-cta:hover { background: var(--gold); }
@@ -68,35 +89,36 @@
   #hero {
     min-height: 100vh;
     display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden; padding: 0 60px;
+    position: relative;
+    overflow: hidden;
+    padding: 0 60px;
   }
 
   .hero-bg {
     position: absolute; inset: 0;
-    background: var(--black); overflow: hidden;
-  }
-  .hero-bg-img {
-    position: absolute; inset: 0;
-    background-image: url('-adb0hl.jpg');
-    background-size: cover; background-position: center top;
-    opacity: 0.12;
-    filter: grayscale(1);
+    background: var(--black);
+    overflow: hidden;
   }
   .hero-bg::before {
     content: '';
-    position: absolute; top: -20%; right: -10%;
+    position: absolute;
+    top: -20%; right: -10%;
     width: 60vw; height: 120vh;
     background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.02) 100%);
     transform: skewX(-15deg);
   }
   .hero-bg::after {
     content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
     background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
   }
 
+  /* Animated geometric lines */
   .geo-line {
-    position: absolute; background: rgba(255,255,255,0.04);
+    position: absolute;
+    background: rgba(255,255,255,0.04);
     transform-origin: left center;
   }
   .geo-line-1 { top: 20%; left: 0; right: 0; height: 1px; transform: rotate(-8deg); }
@@ -110,59 +132,92 @@
     align-items: center;
   }
 
+  .hero-left { }
+
   .hero-eyebrow {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 600; letter-spacing: 6px;
-    text-transform: uppercase; color: var(--mid);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--mid);
     margin-bottom: 20px;
     display: flex; align-items: center; gap: 16px;
   }
   .hero-eyebrow::before {
-    content: ''; display: block; width: 40px; height: 1px; background: var(--mid);
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: var(--mid);
   }
 
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(80px, 12vw, 160px);
-    line-height: 0.9; letter-spacing: 2px; color: var(--white);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    color: var(--white);
     animation: fadeUp 0.8s ease both;
   }
+
   .hero-title .line-accent {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3); color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+    color: transparent;
   }
 
   .hero-tagline {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px; font-weight: 600; letter-spacing: 8px;
-    text-transform: uppercase; color: var(--light);
-    margin-top: 24px; animation: fadeUp 0.8s 0.2s ease both;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-top: 24px;
+    animation: fadeUp 0.8s 0.2s ease both;
   }
 
   .hero-desc {
-    font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--mid);
-    margin-top: 32px; max-width: 420px; animation: fadeUp 0.8s 0.35s ease both;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--mid);
+    margin-top: 32px;
+    max-width: 420px;
+    animation: fadeUp 0.8s 0.35s ease both;
   }
 
   .hero-buttons {
-    display: flex; gap: 16px; margin-top: 40px;
+    display: flex; gap: 16px;
+    margin-top: 40px;
     animation: fadeUp 0.8s 0.5s ease both;
   }
 
   .btn-primary {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px; font-weight: 700; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--black); background: var(--white);
-    padding: 14px 32px; text-decoration: none; display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--white);
+    padding: 14px 32px;
+    text-decoration: none;
+    display: inline-block;
     transition: background 0.2s, transform 0.2s;
   }
   .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
 
   .btn-ghost {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px; font-weight: 700; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--white);
     border: 1px solid rgba(255,255,255,0.25);
-    padding: 14px 32px; text-decoration: none; display: inline-block;
+    padding: 14px 32px;
+    text-decoration: none;
+    display: inline-block;
     transition: border-color 0.2s, background 0.2s;
   }
   .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
@@ -172,79 +227,40 @@
     animation: fadeIn 1s 0.3s ease both;
   }
 
-  .hero-photo-stack {
-    position: relative; width: 100%; max-width: 360px; height: 480px;
-  }
-  .hero-photo-stack .photo-card {
-    position: absolute;
-    border: 1px solid rgba(255,255,255,0.1);
-    overflow: hidden;
-  }
-  .hero-photo-stack .photo-card img {
-    width: 100%; height: 100%; object-fit: cover;
-    filter: grayscale(0.3);
-  }
-  .photo-card-1 {
-    width: 220px; height: 300px;
-    top: 0; left: 20px;
-    transform: rotate(-3deg);
-  }
-  .photo-card-2 {
-    width: 200px; height: 260px;
-    bottom: 0; right: 0;
-    transform: rotate(2deg);
-    border: 1px solid rgba(255,255,255,0.15);
-  }
-  .photo-card-1::after, .photo-card-2::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(8,8,8,0.5) 0%, transparent 60%);
+  .hero-logo-big {
+    width: 100%; max-width: 360px;
+    opacity: 0.12;
+    filter: invert(1);
   }
 
+  .hero-logo-big svg {
+    width: 100%; height: auto;
+  }
+
+  /* Stats strip */
   .hero-stats {
-    position: absolute; bottom: 50px; left: 60px; right: 60px;
+    position: absolute;
+    bottom: 50px; left: 60px; right: 60px;
     display: flex; gap: 60px;
     animation: fadeUp 0.8s 0.7s ease both;
     border-top: 1px solid rgba(255,255,255,0.08);
     padding-top: 30px;
   }
+  .stat { }
   .stat-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px; color: var(--white); line-height: 1;
+    font-size: 36px;
+    color: var(--white);
+    line-height: 1;
   }
   .stat-label {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 600; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--mid); margin-top: 4px;
-  }
-
-  /* ── ACTION STRIP ── */
-  .action-strip {
-    position: relative; width: 100%; height: 320px; overflow: hidden;
-  }
-  .action-strip img {
-    width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
-    display: block; filter: brightness(0.55);
-  }
-  .action-strip-overlay {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 0 60px;
-    background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
-  }
-  .action-strip-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 600; letter-spacing: 6px;
-    text-transform: uppercase; color: var(--accent);
-    display: flex; align-items: center; gap: 14px; margin-bottom: 14px;
-  }
-  .action-strip-label::before {
-    content: ''; display: block; width: 30px; height: 1px; background: var(--accent);
-  }
-  .action-strip-text {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(48px, 8vw, 100px); line-height: 0.9;
-    color: var(--white); letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: 4px;
   }
 
   /* ── SECTIONS SHARED ── */
@@ -252,161 +268,124 @@
 
   .section-label {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 600; letter-spacing: 6px;
-    text-transform: uppercase; color: var(--mid);
-    display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--mid);
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 20px;
   }
   .section-label::before {
-    content: ''; display: block; width: 30px; height: 1px; background: var(--mid);
+    content: '';
+    display: block;
+    width: 30px; height: 1px;
+    background: var(--mid);
   }
 
   .section-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(48px, 7vw, 96px); line-height: 0.95; color: var(--white);
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.95;
+    color: var(--white);
   }
 
   /* ── ABOUT ── */
-  #about { background: var(--off-black); position: relative; overflow: hidden; }
+  #about {
+    background: var(--off-black);
+    position: relative; overflow: hidden;
+  }
 
   .about-inner {
     max-width: 1200px; margin: 0 auto;
     display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
   }
 
+  .about-left { }
+
   .about-body {
-    font-size: 15px; font-weight: 300; line-height: 1.9; color: var(--light); margin-top: 40px;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--light);
+    margin-top: 40px;
   }
   .about-body strong { color: var(--white); font-weight: 500; }
 
   .about-quote {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px; letter-spacing: 2px; color: var(--white);
-    border-left: 3px solid var(--white); padding-left: 24px;
-    margin-top: 48px; line-height: 1.4;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--white);
+    border-left: 3px solid var(--white);
+    padding-left: 24px;
+    margin-top: 48px;
+    line-height: 1.4;
   }
 
-  .about-pillars { display: flex; flex-direction: column; gap: 1px; margin-top: 60px; }
+  .about-right { }
+
+  .about-pillars {
+    display: flex; flex-direction: column; gap: 1px;
+    margin-top: 60px;
+  }
 
   .pillar {
-    padding: 28px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
     display: flex; gap: 24px; align-items: flex-start;
   }
+
   .pillar-num {
-    font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 3px;
-    color: var(--mid); padding-top: 4px; min-width: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--mid);
+    padding-top: 4px;
+    min-width: 30px;
   }
+
+  .pillar-content { }
   .pillar-title {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px; font-weight: 700; letter-spacing: 2px;
-    text-transform: uppercase; color: var(--white); margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 8px;
   }
-  .pillar-desc { font-size: 14px; font-weight: 300; line-height: 1.7; color: var(--mid); }
+  .pillar-desc {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--mid);
+  }
 
   .about-history {
-    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
-    padding: 32px; margin-top: 40px;
-  }
-  .history-year {
-    font-family: 'Bebas Neue', sans-serif; font-size: 72px;
-    color: rgba(255,255,255,0.06); line-height: 1; margin-bottom: -10px;
-  }
-  .history-text { font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--light); }
-
-  /* ── TEAM PHOTO STRIP (in About) ── */
-  .team-photo-strip {
-    display: flex; gap: 12px; margin-top: 48px; overflow: hidden;
-  }
-  .team-photo-strip .tps-item {
-    flex: 1; min-width: 0; aspect-ratio: 3/4; overflow: hidden;
-    position: relative;
-  }
-  .team-photo-strip .tps-item img {
-    width: 100%; height: 100%; object-fit: cover; object-position: top;
-    filter: grayscale(1) contrast(1.1);
-    transition: filter 0.4s, transform 0.4s;
-  }
-  .team-photo-strip .tps-item:hover img {
-    filter: grayscale(0) contrast(1);
-    transform: scale(1.04);
-  }
-
-  /* ── WORK / GALLERY ── */
-  #work {
-    background: var(--black);
-    padding: 120px 60px;
-  }
-
-  .work-inner { max-width: 1200px; margin: 0 auto; }
-
-  .work-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 56px;
-  }
-
-  .work-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto;
-    gap: 12px;
-  }
-
-  .work-cell {
-    position: relative; overflow: hidden; cursor: pointer;
-    background: var(--grey);
-  }
-  .work-cell img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.5s ease, filter 0.4s ease;
-    display: block;
-  }
-  .work-cell:hover img { transform: scale(1.05); filter: brightness(0.7); }
-
-  .work-cell-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(8,8,8,0.85) 0%, transparent 55%);
-    opacity: 0; transition: opacity 0.3s;
-    display: flex; align-items: flex-end; padding: 20px;
-  }
-  .work-cell:hover .work-cell-overlay { opacity: 1; }
-
-  .work-cell-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px; font-weight: 700; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--white);
-  }
-
-  /* Grid layout assignments */
-  .wc-1 { grid-column: 1 / 6; grid-row: 1; height: 380px; }
-  .wc-2 { grid-column: 6 / 9; grid-row: 1; height: 380px; }
-  .wc-3 { grid-column: 9 / 13; grid-row: 1; height: 380px; }
-  .wc-4 { grid-column: 1 / 5; grid-row: 2; height: 320px; }
-  .wc-5 { grid-column: 5 / 9; grid-row: 2; height: 320px; }
-  .wc-6 { grid-column: 9 / 13; grid-row: 2; height: 320px; }
-  .wc-7 { grid-column: 1 / 4; grid-row: 3; height: 300px; }
-  .wc-8 { grid-column: 4 / 8; grid-row: 3; height: 300px; }
-  .wc-9 { grid-column: 8 / 13; grid-row: 3; height: 300px; }
-
-  /* ── CLIENTELE ── */
-  #clientele {
-    background: var(--off-black);
-    padding: 100px 60px;
-  }
-  .clientele-inner { max-width: 1200px; margin: 0 auto; }
-  .clientele-header { margin-bottom: 48px; }
-
-  .clientele-img-wrap {
-    width: 100%;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.07);
-    overflow: hidden;
-    padding: 40px;
+    padding: 32px;
+    margin-top: 40px;
   }
-  .clientele-img-wrap img {
-    width: 100%; display: block;
+  .history-year {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+    margin-bottom: -10px;
+  }
+  .history-text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--light);
   }
 
   /* ── PRODUCTS ── */
-  #products { background: var(--black); }
+  #products {
+    background: var(--black);
+  }
 
   .products-inner { max-width: 1200px; margin: 0 auto; }
 
@@ -415,159 +394,209 @@
     margin-bottom: 60px;
   }
 
-  /* Category selector — redesigned as large visual cards */
-  .cat-nav {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
-    margin-bottom: 60px;
+  /* Tabs */
+  .tab-nav {
+    display: flex; gap: 0;
+    margin-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
-  .cat-card {
-    position: relative; overflow: hidden; cursor: pointer;
-    height: 200px; border: 2px solid transparent;
-    transition: border-color 0.25s;
-    background: var(--grey);
-  }
-  .cat-card img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.4s, filter 0.4s;
-    filter: brightness(0.45) grayscale(0.3);
-  }
-  .cat-card:hover img, .cat-card.active img {
-    transform: scale(1.06); filter: brightness(0.6) grayscale(0);
-  }
-  .cat-card.active { border-color: var(--white); }
-
-  .cat-card-inner {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 20px;
-    background: linear-gradient(to top, rgba(8,8,8,0.8) 0%, transparent 60%);
-  }
-  .cat-card-emoji {
-    font-size: 22px; margin-bottom: 8px;
-  }
-  .cat-card-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px; letter-spacing: 3px; color: var(--white);
-    line-height: 1;
-  }
-  .cat-card-sub {
+  .tab-btn {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px; font-weight: 600; letter-spacing: 3px;
-    text-transform: uppercase; color: rgba(255,255,255,0.4);
-    margin-top: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: none;
+    background: transparent;
+    color: var(--mid);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s, border-color 0.2s;
+    position: relative;
   }
-  .cat-card-active-bar {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-    background: var(--white); transform: scaleX(0);
-    transition: transform 0.25s; transform-origin: left;
-  }
-  .cat-card.active .cat-card-active-bar { transform: scaleX(1); }
-  .cat-card[data-cat="football"] .cat-card-active-bar { background: var(--football); }
-  .cat-card[data-cat="rugby"] .cat-card-active-bar { background: var(--rugby); }
-  .cat-card[data-cat="vests"] .cat-card-active-bar { background: var(--vests); }
-  .cat-card[data-cat="apparel"] .cat-card-active-bar { background: var(--apparel); }
+  .tab-btn:hover { color: var(--white); }
+  .tab-btn.active { color: var(--white); }
+  .tab-btn[data-cat="football"].active { border-bottom-color: var(--football); }
+  .tab-btn[data-cat="rugby"].active { border-bottom-color: var(--rugby); }
+  .tab-btn[data-cat="vests"].active { border-bottom-color: var(--vests); }
+  .tab-btn[data-cat="apparel"].active { border-bottom-color: var(--apparel); }
 
-  /* Tab Panels */
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
 
-  /* Product showcase strip */
-  .product-showcase {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-    margin-bottom: 48px;
-  }
-  .showcase-card {
-    position: relative; overflow: hidden;
-    aspect-ratio: 4/3;
-    background: var(--grey);
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-  .showcase-card img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.4s;
-  }
-  .showcase-card:hover img { transform: scale(1.04); }
-  .showcase-card-label {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 12px 16px;
-    background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, transparent 100%);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 700; letter-spacing: 3px;
-    text-transform: uppercase; color: rgba(255,255,255,0.6);
-  }
-
-  /* Options bar */
   .product-options {
     background: rgba(255,255,255,0.025);
     border: 1px solid rgba(255,255,255,0.06);
-    padding: 24px 32px; margin-bottom: 32px;
+    padding: 24px 32px;
+    margin-bottom: 32px;
     display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;
   }
+
+  .option-group { }
   .option-label {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px; font-weight: 700; letter-spacing: 3px;
-    text-transform: uppercase; margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
   }
   .option-label.football { color: var(--football); }
   .option-label.rugby { color: var(--rugby); }
   .option-label.vests { color: var(--vests); }
   .option-label.apparel { color: var(--apparel); }
-  .option-value { font-size: 13px; font-weight: 300; color: var(--light); line-height: 1.6; }
+  .option-value {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--light);
+    line-height: 1.6;
+  }
 
   /* Price Table */
-  .price-table { width: 100%; border-collapse: collapse; }
-  .price-table thead tr { border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .price-table thead tr {
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
   .price-table th {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 700; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--mid); padding: 0 0 16px; text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mid);
+    padding: 0 0 16px;
+    text-align: left;
   }
   .price-table th:not(:first-child) { text-align: right; }
+
   .price-table tbody tr {
-    border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: background 0.15s;
   }
   .price-table tbody tr:hover { background: rgba(255,255,255,0.025); }
-  .price-table td { padding: 20px 0; font-size: 14px; font-weight: 300; color: var(--light); vertical-align: top; }
+
+  .price-table td {
+    padding: 20px 0;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--light);
+    vertical-align: top;
+  }
   .price-table td:not(:first-child) { text-align: right; }
 
   .item-name {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 15px; font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase; color: var(--white); display: block; margin-bottom: 2px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white);
+    display: block;
+    margin-bottom: 2px;
   }
-  .item-desc { font-size: 12px; font-weight: 300; color: var(--mid); }
+  .item-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--mid);
+  }
 
-  .price-val { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 600; color: var(--white); }
-  .price-na { color: var(--grey); font-size: 14px; }
+  .price-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+  }
+  .price-na {
+    color: var(--grey);
+    font-size: 14px;
+  }
 
+  /* Extras */
   .extras-strip {
-    margin-top: 32px; padding: 20px 24px;
+    margin-top: 32px;
+    padding: 20px 24px;
     border: 1px solid rgba(255,255,255,0.06);
     display: flex; gap: 40px; flex-wrap: wrap;
     background: rgba(255,255,255,0.02);
   }
-  .extra-item { font-size: 13px; font-weight: 300; color: var(--mid); }
-  .extra-item strong { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--light); }
+  .extra-item {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--mid);
+  }
+  .extra-item strong {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--light);
+  }
   .extra-price { color: var(--white); font-weight: 500; }
 
-  .currency-note { font-size: 12px; font-weight: 300; color: var(--mid); margin-top: 16px; }
+  /* Currency note */
+  .currency-note {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--mid);
+    margin-top: 16px;
+    letter-spacing: 0.5px;
+  }
 
-  /* ── ORDER ── */
-  #order { background: var(--off-black); position: relative; overflow: hidden; }
+  /* ── ORDER / CTA ── */
+  #order {
+    background: var(--off-black);
+    position: relative; overflow: hidden;
+  }
 
   .order-inner {
     max-width: 1200px; margin: 0 auto;
     display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
   }
 
-  .order-desc { font-size: 15px; font-weight: 300; line-height: 1.9; color: var(--light); margin-top: 32px; max-width: 440px; }
+  .order-left { }
 
-  .order-perks { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; }
-  .perk { display: flex; gap: 16px; align-items: flex-start; font-size: 14px; font-weight: 300; color: var(--light); line-height: 1.6; }
-  .perk-icon { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 2px; color: var(--black); background: var(--white); padding: 3px 8px; flex-shrink: 0; margin-top: 1px; }
+  .order-desc {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--light);
+    margin-top: 32px;
+    max-width: 440px;
+  }
 
-  .order-cards { display: flex; flex-direction: column; gap: 16px; margin-top: 60px; }
+  .order-perks {
+    margin-top: 40px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .perk {
+    display: flex; gap: 16px; align-items: flex-start;
+    font-size: 14px; font-weight: 300; color: var(--light);
+    line-height: 1.6;
+  }
+  .perk-icon {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--black);
+    background: var(--white);
+    padding: 3px 8px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .order-right { }
+
+  .order-cards {
+    display: flex; flex-direction: column; gap: 16px;
+    margin-top: 60px;
+  }
+
   .order-card {
     display: flex; gap: 20px; align-items: center;
     padding: 24px 28px;
@@ -576,50 +605,160 @@
     transition: border-color 0.2s, background 0.2s, transform 0.2s;
     background: rgba(255,255,255,0.02);
   }
-  .order-card:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); transform: translateX(4px); }
-  .order-card-icon { font-size: 28px; flex-shrink: 0; }
+  .order-card:hover {
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.05);
+    transform: translateX(4px);
+  }
+
+  .order-card-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
   .order-card-body { flex: 1; }
-  .order-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 4px; }
-  .order-card-sub { font-size: 13px; font-weight: 300; color: var(--mid); }
-  .order-card-arrow { font-size: 18px; color: var(--mid); transition: color 0.2s; }
+  .order-card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .order-card-sub {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--mid);
+  }
+
+  .order-card-arrow {
+    font-size: 18px;
+    color: var(--mid);
+    transition: color 0.2s;
+  }
   .order-card:hover .order-card-arrow { color: var(--white); }
 
-  .team-contacts { margin-top: 48px; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 32px; }
-  .team-title { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--mid); margin-bottom: 24px; }
-  .team-member { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
-  .member-role { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--mid); margin-bottom: 4px; }
-  .member-name { font-size: 15px; font-weight: 400; color: var(--white); }
-  .member-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 1px; color: var(--light); text-decoration: none; }
+  .team-contacts {
+    margin-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 32px;
+  }
+  .team-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 24px;
+  }
+  .team-member {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .member-role {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 4px;
+  }
+  .member-name {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--white);
+  }
+  .member-phone {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--light);
+    text-decoration: none;
+  }
   .member-phone:hover { color: var(--white); }
 
   /* ── FOOTER ── */
-  footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.07); padding: 60px; }
-  .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 6px; color: rgba(255,255,255,0.15); }
-  .footer-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 6px; text-transform: uppercase; color: var(--mid); margin-top: 6px; }
-  .footer-socials { display: flex; gap: 24px; }
-  .footer-social { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 60px;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 6px;
+    color: rgba(255,255,255,0.15);
+  }
+  .footer-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: 6px;
+  }
+  .footer-socials {
+    display: flex; gap: 24px;
+  }
+  .footer-social {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
   .footer-social:hover { color: var(--white); }
-  .footer-copy { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.2); }
+  .footer-copy {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.2);
+  }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
 
-  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
+  /* ── DIAGONAL ACCENTS ── */
   .diag-accent {
-    position: absolute; top: 0; right: 0; width: 40%; height: 100%;
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%; height: 100%;
     background: linear-gradient(135deg, transparent 60%, rgba(255,255,255,0.012) 100%);
     pointer-events: none;
   }
 
   /* ── MOBILE ── */
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
     section { padding: 80px 24px; }
@@ -630,20 +769,196 @@
     .about-inner { grid-template-columns: 1fr; gap: 48px; }
     .order-inner { grid-template-columns: 1fr; gap: 48px; }
     .footer-inner { flex-direction: column; gap: 32px; text-align: center; }
-    .cat-nav { grid-template-columns: repeat(2, 1fr); }
-    .work-grid { grid-template-columns: 1fr 1fr; }
-    .wc-1, .wc-2, .wc-3, .wc-4, .wc-5, .wc-6, .wc-7, .wc-8, .wc-9 {
-      grid-column: auto; grid-row: auto; height: 200px;
-    }
-    .product-showcase { grid-template-columns: 1fr 1fr; }
+    .tab-btn { padding: 12px 16px; font-size: 11px; }
     .products-header { flex-direction: column; align-items: flex-start; gap: 16px; }
     footer { padding: 40px 24px; }
-    #work, #clientele { padding: 80px 24px; }
   }
 
+  /* Scrollbar */
   ::-webkit-scrollbar { width: 3px; }
   ::-webkit-scrollbar-track { background: var(--black); }
   ::-webkit-scrollbar-thumb { background: #333; }
+
+  /* WhatsApp green tint */
+  .wa { color: #25D366; }
+
+  /* ── HERO PHOTO ── */
+  .hero-photo-wrap {
+    position: relative;
+    width: 100%; max-width: 420px;
+  }
+  .hero-photo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--black) 0%, transparent 30%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-photo-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 30%;
+    background: linear-gradient(to top, var(--black), transparent);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-photo-wrap img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(20%);
+  }
+
+  /* ── ACTION STRIP ── */
+  .action-strip {
+    position: relative;
+    height: 380px;
+    overflow: hidden;
+  }
+  .action-strip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.45);
+  }
+  .action-strip-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .action-strip-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .action-strip-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 96px);
+    letter-spacing: 4px;
+    color: var(--white);
+    text-align: center;
+    line-height: 1;
+  }
+
+  /* ── GALLERY / WORK SECTION ── */
+  #gallery {
+    background: var(--off-black);
+    padding: 120px 60px;
+  }
+  .gallery-inner { max-width: 1200px; margin: 0 auto; }
+  .gallery-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 60px;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    cursor: pointer;
+  }
+  .gallery-item.wide {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: brightness(0.85);
+  }
+  .gallery-item:hover img {
+    transform: scale(1.04);
+    filter: brightness(1);
+  }
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+  .gallery-item-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  /* ── CLIENTELE SECTION ── */
+  #clientele {
+    background: var(--black);
+    padding: 100px 60px;
+  }
+  .clientele-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+  .clientele-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 16px;
+  }
+  .clientele-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    color: var(--white);
+    margin-bottom: 60px;
+  }
+  .clientele-img-wrap {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .clientele-img-wrap img {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* ── TEAM PORTRAIT ── */
+  .team-member-portrait {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    filter: grayscale(1);
+    border: 1px solid rgba(255,255,255,0.15);
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  .team-member { align-items: center; }
+
+  @media (max-width: 768px) {
+    #gallery { padding: 80px 24px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.wide { grid-column: span 2; }
+    #clientele { padding: 80px 24px; }
+    .action-strip { height: 260px; }
+  }
 </style>
 </head>
 <body>
@@ -651,12 +966,17 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo">
-    <img src="Gwazu_Logo_1.png" alt="GWAZU" />
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="50,5 95,90 5,90" fill="white"/>
+      <polygon points="50,30 75,75 25,75" fill="#080808"/>
+      <line x1="10" y1="60" x2="90" y2="52" stroke="#080808" stroke-width="5"/>
+    </svg>
+    <span class="nav-logo-text">GWAZU</span>
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#work">Work</a></li>
     <li><a href="#products">Products</a></li>
+    <li><a href="#gallery">Our Work</a></li>
     <li><a href="#order">Order</a></li>
   </ul>
   <a href="#order" class="nav-cta">Order Now</a>
@@ -665,7 +985,6 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg">
-    <div class="hero-bg-img"></div>
     <div class="geo-line geo-line-1"></div>
     <div class="geo-line geo-line-2"></div>
     <div class="geo-line geo-line-3"></div>
@@ -682,18 +1001,13 @@
         Born in the suburbs of Kampala. Built for athletes, teams, and fashion lovers across Africa. GWAZU crafts performance sportswear with cultural identity at its core.
       </p>
       <div class="hero-buttons">
-        <a href="#work" class="btn-primary">View Our Work</a>
+        <a href="#products" class="btn-primary">View Products</a>
         <a href="#order" class="btn-ghost">Order a Kit</a>
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-photo-stack">
-        <div class="photo-card photo-card-1">
-          <img src="IMG-20241118-WA0023.jpg" alt="GWAZU Uganda Kit"/>
-        </div>
-        <div class="photo-card photo-card-2">
-          <img src="HL7A4121.jpg" alt="GWAZU Rugby Player"/>
-        </div>
+      <div class="hero-photo-wrap">
+        <img src="-adb0hl.jpg" alt="GWAZU athlete in kit" />
       </div>
     </div>
   </div>
@@ -747,21 +1061,7 @@
         <div class="history-year">2017</div>
         <p class="history-text">Operating as a collective since 2017, officially registered in 2022. The founding members have known each other since 2005, bound by a shared vision of captivating audiences through creativity, innovation, and style.</p>
       </div>
-
-      <!-- Team photo strip -->
-      <div class="team-photo-strip" style="margin-top: 40px;">
-        <div class="tps-item">
-          <img src="IMG-20241118-WA0025.jpg" alt="GWAZU Uganda Kit – Close-up"/>
-        </div>
-        <div class="tps-item">
-          <img src="HL7A5153.jpg" alt="GWAZU Team Event"/>
-        </div>
-        <div class="tps-item">
-          <img src="IMG-20241111-WA0132.jpg" alt="GWAZU Community Event"/>
-        </div>
-      </div>
     </div>
-
     <div class="about-right reveal">
       <div class="section-label">What Sets Us Apart</div>
       <h2 class="section-title" style="font-size: clamp(36px, 4vw, 60px);">OUR<br>EDGE</h2>
@@ -791,94 +1091,17 @@
           <div class="pillar-num">04</div>
           <div class="pillar-content">
             <div class="pillar-title">No Minimum Order</div>
-            <div class="pillar-desc">Whether you need a single piece or an entire team's kit — we produce it.</div>
+            <div class="pillar-desc">Whether you need a single piece or an entire team's kit — we produce it. Flexible payment and design collaboration too.</div>
           </div>
         </div>
         <div class="pillar">
           <div class="pillar-num">05</div>
           <div class="pillar-content">
             <div class="pillar-title">Free Citywide Delivery</div>
-            <div class="pillar-desc">Every full-price order within the Greater Kampala Metropolitan Area comes with free delivery.</div>
+            <div class="pillar-desc">Every full-price order within the Greater Kampala Metropolitan Area (GKMA) comes with free delivery.</div>
           </div>
         </div>
       </div>
-
-      <!-- Logo close-up photos -->
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:40px;">
-        <div style="overflow:hidden; aspect-ratio:1; border: 1px solid rgba(255,255,255,0.08);">
-          <img src="Gwazu_Logo_1.png" alt="GWAZU Logo" style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.2);transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
-        </div>
-        <div style="overflow:hidden; aspect-ratio:1; border: 1px solid rgba(255,255,255,0.08);">
-          <img src="20231125_165459.jpg" alt="GWAZU on blue" style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.2);transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WORK / GALLERY -->
-<section id="work">
-  <div class="work-inner">
-    <div class="work-header reveal">
-      <div>
-        <div class="section-label">Portfolio</div>
-        <h2 class="section-title">OUR<br>WORK</h2>
-      </div>
-      <div style="font-size:13px; font-weight:300; color: var(--mid); max-width:280px; text-align:right; line-height:1.7;">
-        Kits worn on fields, courts, and screens across Uganda and beyond.
-      </div>
-    </div>
-
-    <div class="work-grid reveal">
-      <div class="work-cell wc-1">
-        <img src="IMG-20241118-WA0021.jpg" alt="GWAZU Uganda Kit Promo"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Uganda · National Kit</span></div>
-      </div>
-      <div class="work-cell wc-2">
-        <img src="HL7A4121.jpg" alt="GWAZU Rugby Player Action"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Rugby Legends Uganda</span></div>
-      </div>
-      <div class="work-cell wc-3">
-        <img src="GRANDEZA_SK7_ad.png" alt="Grandeza CF – Champion Mode"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Grandeza CF · Champion Mode</span></div>
-      </div>
-      <div class="work-cell wc-4">
-        <img src="koryom2.png" alt="Koryom FC – Grasshoppers"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Koryom FC · Grasshoppers</span></div>
-      </div>
-      <div class="work-cell wc-5">
-        <img src="Polo_neck_full_kit4.png" alt="Charlie's Shooters 17 Dark Kit"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Charlie's Shooters 17</span></div>
-      </div>
-      <div class="work-cell wc-6">
-        <img src="CREATE_YOUR_IDENTITY_2.png" alt="Create Your Identity campaign"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Create Your Identity</span></div>
-      </div>
-      <div class="work-cell wc-7">
-        <img src="Red_special_UG-2.png" alt="Uganda Red Special Kit"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Uganda · Red Special Kit</span></div>
-      </div>
-      <div class="work-cell wc-8">
-        <img src="KYUad.png" alt="Kyambogo University Rugby"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">Kyambogo University Rugby</span></div>
-      </div>
-      <div class="work-cell wc-9">
-        <img src="VURSK1homead.png" alt="VU Sharks – Home Kit"/>
-        <div class="work-cell-overlay"><span class="work-cell-label">VU Sharks · Home Kit</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CLIENTELE -->
-<section id="clientele">
-  <div class="clientele-inner">
-    <div class="clientele-header reveal">
-      <div class="section-label">Partners</div>
-      <h2 class="section-title">OUR<br>CLIENTELE</h2>
-    </div>
-    <div class="clientele-img-wrap reveal">
-      <img src="Clientele_8_4_25.png" alt="GWAZU Clientele — Teams and clubs we've kitted out"/>
     </div>
   </div>
 </section>
@@ -896,63 +1119,15 @@
       </div>
     </div>
 
-    <!-- Visual category selector -->
-    <div class="cat-nav reveal">
-      <div class="cat-card active" data-cat="football" onclick="switchCat('football')">
-        <img src="GRANDEZA_SK7.png" alt="Football kits"/>
-        <div class="cat-card-inner">
-          <div class="cat-card-emoji">⚽</div>
-          <div class="cat-card-name">Football</div>
-          <div class="cat-card-sub">From 50,000 UGX</div>
-        </div>
-        <div class="cat-card-active-bar"></div>
-      </div>
-      <div class="cat-card" data-cat="rugby" onclick="switchCat('rugby')">
-        <img src="KYUad-1.png" alt="Rugby kits"/>
-        <div class="cat-card-inner">
-          <div class="cat-card-emoji">🏉</div>
-          <div class="cat-card-name">Rugby</div>
-          <div class="cat-card-sub">From 65,000 UGX</div>
-        </div>
-        <div class="cat-card-active-bar"></div>
-      </div>
-      <div class="cat-card" data-cat="vests" onclick="switchCat('vests')">
-        <img src="SMACKVEST_SK1F.png" alt="Vests and training"/>
-        <div class="cat-card-inner">
-          <div class="cat-card-emoji">🏃</div>
-          <div class="cat-card-name">Vests</div>
-          <div class="cat-card-sub">From 35,000 UGX</div>
-        </div>
-        <div class="cat-card-active-bar"></div>
-      </div>
-      <div class="cat-card" data-cat="apparel" onclick="switchCat('apparel')">
-        <img src="IMG-20241118-WA0023.jpg" alt="GWAZU Apparel"/>
-        <div class="cat-card-inner">
-          <div class="cat-card-emoji">👕</div>
-          <div class="cat-card-name">Apparel</div>
-          <div class="cat-card-sub">From 20,000 UGX</div>
-        </div>
-        <div class="cat-card-active-bar"></div>
-      </div>
+    <div class="tab-nav reveal">
+      <button class="tab-btn active" data-cat="football" onclick="switchTab('football')">⚽ Football</button>
+      <button class="tab-btn" data-cat="rugby" onclick="switchTab('rugby')">🏉 Rugby</button>
+      <button class="tab-btn" data-cat="vests" onclick="switchTab('vests')">🏃 Vests</button>
+      <button class="tab-btn" data-cat="apparel" onclick="switchTab('apparel')">👕 Apparel</button>
     </div>
 
     <!-- FOOTBALL -->
     <div class="tab-panel active" id="tab-football">
-      <div class="product-showcase">
-        <div class="showcase-card">
-          <img src="ug3__1_.png" alt="Uganda Tribal Red Kit"/>
-          <div class="showcase-card-label">Custom Football Kit</div>
-        </div>
-        <div class="showcase-card">
-          <img src="Polo_neck_full_kit4.png" alt="Charlie's Shooters 17 Kit"/>
-          <div class="showcase-card-label">National Level Design</div>
-        </div>
-        <div class="showcase-card">
-          <img src="ug4.png" alt="Uganda Tribal White Kit"/>
-          <div class="showcase-card-label">On-Pitch Performance</div>
-        </div>
-      </div>
-
       <div class="product-options">
         <div class="option-group">
           <div class="option-label football">Collars</div>
@@ -967,7 +1142,6 @@
           <div class="option-value">Soft Rice, Soft Derrick</div>
         </div>
       </div>
-
       <table class="price-table">
         <thead>
           <tr>
@@ -1032,21 +1206,6 @@
 
     <!-- RUGBY -->
     <div class="tab-panel" id="tab-rugby">
-      <div class="product-showcase">
-        <div class="showcase-card">
-          <img src="VURSK1awayad.png" alt="VU Sharks Away Kit"/>
-          <div class="showcase-card-label">Smack Eagles Kit</div>
-        </div>
-        <div class="showcase-card">
-          <img src="GbtPAKvXUA0jPFj.jpeg" alt="Rugby Legends Uganda"/>
-          <div class="showcase-card-label">Match-Ready Quality</div>
-        </div>
-        <div class="showcase-card">
-          <img src="SMACK_SK3B.png" alt="Smack Rugby Jersey"/>
-          <div class="showcase-card-label">Precision Branding</div>
-        </div>
-      </div>
-
       <div class="product-options">
         <div class="option-group">
           <div class="option-label rugby">Collars</div>
@@ -1061,7 +1220,6 @@
           <div class="option-value">Soft Rice, Hard Rice, Soft Derrick, Hard Derrick</div>
         </div>
       </div>
-
       <table class="price-table">
         <thead>
           <tr>
@@ -1126,36 +1284,20 @@
 
     <!-- VESTS -->
     <div class="tab-panel" id="tab-vests">
-      <div class="product-showcase">
-        <div class="showcase-card">
-          <img src="VUSSK4.png" alt="VU Sharks Vest"/>
-          <div class="showcase-card-label">Training Vests</div>
-        </div>
-        <div class="showcase-card">
-          <img src="SMACKVEST_SK1F.png" alt="Smack Rugby Vest Front"/>
-          <div class="showcase-card-label">Esports Jerseys</div>
-        </div>
-        <div class="showcase-card">
-          <img src="Volleyball_V_Neck_full_kit_1__1_.png" alt="Volleyball Kit"/>
-          <div class="showcase-card-label">Custom Vests</div>
-        </div>
-      </div>
-
       <div class="product-options">
         <div class="option-group">
           <div class="option-label vests">Collars</div>
-          <div class="option-value">Round, Y-Neck, V-Neck, W-Neck, Half Polo</div>
+          <div class="option-value">Round, Y-Neck, V-Neck, W-Neck, Polo, Half Polo</div>
         </div>
         <div class="option-group">
           <div class="option-label vests">Sleeve Styles</div>
-          <div class="option-value">Sleeveless, Short sleeves</div>
+          <div class="option-value">Shoulder width, Thick, Thin</div>
         </div>
         <div class="option-group">
           <div class="option-label vests">Materials</div>
           <div class="option-value">Soft Rice, Soft Derrick</div>
         </div>
       </div>
-
       <table class="price-table">
         <thead>
           <tr>
@@ -1167,37 +1309,31 @@
         </thead>
         <tbody>
           <tr>
-            <td><span class="item-name">Training Vest Regular</span><span class="item-desc">Lightweight breathable training vest</span></td>
-            <td><span class="price-val">35,000</span></td>
-            <td><span class="price-val">40,000</span></td>
+            <td><span class="item-name">Regular Warm-Up Vest</span></td>
+            <td><span class="price-val">28,000</span></td>
+            <td><span class="price-val">33,000</span></td>
+            <td><span class="price-val">25,000</span></td>
+          </tr>
+          <tr>
+            <td><span class="item-name">Athletics Vest</span><span class="item-desc">Made for long-distance and high-speed athletics</span></td>
             <td><span class="price-val">30,000</span></td>
-          </tr>
-          <tr>
-            <td><span class="item-name">Athletics Vest</span><span class="item-desc">Track and field athletic vest</span></td>
-            <td><span class="price-val">40,000</span></td>
-            <td><span class="price-val">45,000</span></td>
             <td><span class="price-val">35,000</span></td>
+            <td><span class="price-val">25,000</span></td>
           </tr>
           <tr>
-            <td><span class="item-name">Basketball Regular Shirt</span></td>
-            <td><span class="price-val">45,000</span></td>
+            <td><span class="item-name">Regular Athletics Kit</span><span class="item-desc">An athletic vest and a pair of shorts</span></td>
+            <td><span class="price-val">55,000</span></td>
+            <td><span class="price-val">60,000</span></td>
             <td><span class="price-val">50,000</span></td>
-            <td><span class="price-val">40,000</span></td>
           </tr>
           <tr>
-            <td><span class="item-name">Basketball Regular Short</span></td>
-            <td><span class="price-val">35,000</span></td>
-            <td><span class="price-val">40,000</span></td>
-            <td><span class="price-val">30,000</span></td>
+            <td><span class="item-name">Deluxe Athletics Kit</span><span class="item-desc">An athletic vest, a cap and a pair of shorts</span></td>
+            <td><span class="price-val">70,000</span></td>
+            <td><span class="price-val">75,000</span></td>
+            <td><span class="price-val">60,000</span></td>
           </tr>
           <tr>
             <td><span class="item-name">Basketball Regular Kit</span><span class="item-desc">A vest and a pair of shorts</span></td>
-            <td><span class="price-val">75,000</span></td>
-            <td><span class="price-val">80,000</span></td>
-            <td><span class="price-val">65,000</span></td>
-          </tr>
-          <tr>
-            <td><span class="item-name">Netball Regular Kit</span><span class="item-desc">A vest and a skirt</span></td>
             <td><span class="price-val">60,000</span></td>
             <td><span class="price-val">70,000</span></td>
             <td><span class="price-val">55,000</span></td>
@@ -1220,21 +1356,6 @@
 
     <!-- APPAREL -->
     <div class="tab-panel" id="tab-apparel">
-      <div class="product-showcase">
-        <div class="showcase-card">
-          <img src="IMG-20241118-WA0023.jpg" alt="GWAZU Uganda Kit"/>
-          <div class="showcase-card-label">Cotton T-Shirts</div>
-        </div>
-        <div class="showcase-card">
-          <img src="IMG-20241118-WA0025.jpg" alt="GWAZU Uganda Kit – Detail"/>
-          <div class="showcase-card-label">V-Neck Apparel</div>
-        </div>
-        <div class="showcase-card">
-          <img src="HL7A5153.jpg" alt="GWAZU Brand Event"/>
-          <div class="showcase-card-label">Lifestyle Apparel</div>
-        </div>
-      </div>
-
       <table class="price-table">
         <thead>
           <tr>
@@ -1316,6 +1437,62 @@
   </div>
 </section>
 
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-header reveal">
+      <div>
+        <div class="section-label">Portfolio</div>
+        <h2 class="section-title">OUR<br>WORK</h2>
+      </div>
+      <div style="font-size:13px; font-weight:300; color: var(--mid); max-width:280px; text-align:right; line-height:1.7;">
+        Every kit is uniquely designed.<br>Every identity is yours.
+      </div>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item wide">
+        <img src="CREATE_YOUR_IDENTITY_2.png" alt="Create Your Identity" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Create Your Identity</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="Bambina.png" alt="Bambina Esports Kit" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Bambina — Esports</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="Championssk3-1.png" alt="Champions FC Kit" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Champions FC</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="curfew.png" alt="Curfew Kit" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Curfew FC</span></div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="GRANDEZA_SK7_ad.png" alt="Grandeza Kit" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Grandeza C.F. — Season 7</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FOOTBALL2.png" alt="Football Jersey" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Football Collection</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="20231120_182642__1_.jpg" alt="GWAZU fabric detail" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Craftsmanship</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTELE -->
+<section id="clientele">
+  <div class="clientele-inner reveal">
+    <div class="clientele-label">Trusted By</div>
+    <h2 class="clientele-title">OUR CLIENTELE</h2>
+    <div class="clientele-img-wrap">
+      <img src="Clientele_8_4_25.png" alt="GWAZU Clientele" />
+    </div>
+  </div>
+</section>
+
 <!-- ORDER -->
 <section id="order">
   <div class="diag-accent"></div>
@@ -1377,6 +1554,7 @@
       <div class="team-contacts">
         <div class="team-title">Our Team</div>
         <div class="team-member">
+          <img src="20231230_171422.jpg" class="team-member-portrait" alt="Kevin Nalungu" />
           <div>
             <div class="member-role">Chief Executive Officer</div>
             <div class="member-name">Kevin Nalungu</div>
@@ -1384,6 +1562,7 @@
           <a href="tel:+256751464000" class="member-phone">+256 751 464 000</a>
         </div>
         <div class="team-member">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);margin-right:12px;flex-shrink:0;"></div>
           <div>
             <div class="member-role">COO &amp; CFO</div>
             <div class="member-name">Leone George Okello</div>
@@ -1391,6 +1570,7 @@
           <a href="tel:+256779317949" class="member-phone">+256 779 317 949</a>
         </div>
         <div class="team-member">
+          <img src="20231230_084851.jpg" class="team-member-portrait" alt="Mark Alvin Muhumuza" />
           <div>
             <div class="member-role">Head of Sales</div>
             <div class="member-name">Mark Alvin Muhumuza</div>
@@ -1422,17 +1602,20 @@
 </footer>
 
 <script>
-  function switchCat(cat) {
-    document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('active'));
+  // Tab switching
+  function switchTab(cat) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.querySelector(`.cat-card[data-cat="${cat}"]`).classList.add('active');
+    document.querySelector(`[data-cat="${cat}"]`).classList.add('active');
     document.getElementById(`tab-${cat}`).classList.add('active');
   }
 
+  // Sticky nav
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
   });
 
+  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1440,7 +1623,7 @@
         observer.unobserve(e.target);
       }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
