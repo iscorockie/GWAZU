@@ -781,6 +781,184 @@
 
   /* WhatsApp green tint */
   .wa { color: #25D366; }
+
+  /* ── HERO PHOTO ── */
+  .hero-photo-wrap {
+    position: relative;
+    width: 100%; max-width: 420px;
+  }
+  .hero-photo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--black) 0%, transparent 30%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-photo-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 30%;
+    background: linear-gradient(to top, var(--black), transparent);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-photo-wrap img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(20%);
+  }
+
+  /* ── ACTION STRIP ── */
+  .action-strip {
+    position: relative;
+    height: 380px;
+    overflow: hidden;
+  }
+  .action-strip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.45);
+  }
+  .action-strip-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .action-strip-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .action-strip-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 96px);
+    letter-spacing: 4px;
+    color: var(--white);
+    text-align: center;
+    line-height: 1;
+  }
+
+  /* ── GALLERY / WORK SECTION ── */
+  #gallery {
+    background: var(--off-black);
+    padding: 120px 60px;
+  }
+  .gallery-inner { max-width: 1200px; margin: 0 auto; }
+  .gallery-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 60px;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    cursor: pointer;
+  }
+  .gallery-item.wide {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: brightness(0.85);
+  }
+  .gallery-item:hover img {
+    transform: scale(1.04);
+    filter: brightness(1);
+  }
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+  .gallery-item-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  /* ── CLIENTELE SECTION ── */
+  #clientele {
+    background: var(--black);
+    padding: 100px 60px;
+  }
+  .clientele-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+  .clientele-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 16px;
+  }
+  .clientele-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    color: var(--white);
+    margin-bottom: 60px;
+  }
+  .clientele-img-wrap {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .clientele-img-wrap img {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* ── TEAM PORTRAIT ── */
+  .team-member-portrait {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    filter: grayscale(1);
+    border: 1px solid rgba(255,255,255,0.15);
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  .team-member { align-items: center; }
+
+  @media (max-width: 768px) {
+    #gallery { padding: 80px 24px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.wide { grid-column: span 2; }
+    #clientele { padding: 80px 24px; }
+    .action-strip { height: 260px; }
+  }
 </style>
 </head>
 <body>
@@ -798,6 +976,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#products">Products</a></li>
+    <li><a href="#gallery">Our Work</a></li>
     <li><a href="#order">Order</a></li>
   </ul>
   <a href="#order" class="nav-cta">Order Now</a>
@@ -827,13 +1006,8 @@
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-logo-big">
-        <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="100,10 190,190 10,190" fill="white"/>
-          <polygon points="100,60 155,160 45,160" fill="#080808"/>
-          <line x1="15" y1="130" x2="185" y2="115" stroke="#080808" stroke-width="10"/>
-          <text x="0" y="218" font-family="'Bebas Neue', sans-serif" font-size="52" fill="white" letter-spacing="8">GWAZU</text>
-        </svg>
+      <div class="hero-photo-wrap">
+        <img src="-adb0hl.jpg" alt="GWAZU athlete in kit" />
       </div>
     </div>
   </div>
@@ -856,6 +1030,15 @@
     </div>
   </div>
 </section>
+
+<!-- ACTION STRIP -->
+<div class="action-strip">
+  <img src="20250718_211240.jpg" alt="GWAZU team in action" />
+  <div class="action-strip-overlay">
+    <div class="action-strip-label">Worn on the pitch</div>
+    <div class="action-strip-text">BUILT FOR<br>CHAMPIONS</div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
@@ -1254,6 +1437,62 @@
   </div>
 </section>
 
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-header reveal">
+      <div>
+        <div class="section-label">Portfolio</div>
+        <h2 class="section-title">OUR<br>WORK</h2>
+      </div>
+      <div style="font-size:13px; font-weight:300; color: var(--mid); max-width:280px; text-align:right; line-height:1.7;">
+        Every kit is uniquely designed.<br>Every identity is yours.
+      </div>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item wide">
+        <img src="CREATE_YOUR_IDENTITY_2.png" alt="Create Your Identity" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Create Your Identity</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="Bambina.png" alt="Bambina Esports Kit" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Bambina — Esports</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="Championssk3-1.png" alt="Champions FC Kit" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Champions FC</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="curfew.png" alt="Curfew Kit" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Curfew FC</span></div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="GRANDEZA_SK7_ad.png" alt="Grandeza Kit" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Grandeza C.F. — Season 7</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="FOOTBALL2.png" alt="Football Jersey" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Football Collection</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="20231120_182642__1_.jpg" alt="GWAZU fabric detail" />
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Craftsmanship</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTELE -->
+<section id="clientele">
+  <div class="clientele-inner reveal">
+    <div class="clientele-label">Trusted By</div>
+    <h2 class="clientele-title">OUR CLIENTELE</h2>
+    <div class="clientele-img-wrap">
+      <img src="Clientele_8_4_25.png" alt="GWAZU Clientele" />
+    </div>
+  </div>
+</section>
+
 <!-- ORDER -->
 <section id="order">
   <div class="diag-accent"></div>
@@ -1315,6 +1554,7 @@
       <div class="team-contacts">
         <div class="team-title">Our Team</div>
         <div class="team-member">
+          <img src="20231230_171422.jpg" class="team-member-portrait" alt="Kevin Nalungu" />
           <div>
             <div class="member-role">Chief Executive Officer</div>
             <div class="member-name">Kevin Nalungu</div>
@@ -1322,6 +1562,7 @@
           <a href="tel:+256751464000" class="member-phone">+256 751 464 000</a>
         </div>
         <div class="team-member">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);margin-right:12px;flex-shrink:0;"></div>
           <div>
             <div class="member-role">COO &amp; CFO</div>
             <div class="member-name">Leone George Okello</div>
@@ -1329,6 +1570,7 @@
           <a href="tel:+256779317949" class="member-phone">+256 779 317 949</a>
         </div>
         <div class="team-member">
+          <img src="20231230_084851.jpg" class="team-member-portrait" alt="Mark Alvin Muhumuza" />
           <div>
             <div class="member-role">Head of Sales</div>
             <div class="member-name">Mark Alvin Muhumuza</div>
